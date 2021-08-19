@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Login</h2>
+  <form action="submit" method="POST">{% csrf_token %}
+    <div class="form-group">
+      <label for="username">Insira seu Usuário:</label>
+      <input type="text" class="form-control" id="username" placeholder="User" name="username">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Senha:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Senha" name="password">
+    </div>
+    <div class="form-group form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="remember"> Lembrar de mim
+      </label>
+    </div>
+      {% for message in messages %}
+      <div class="alert alert-danger">
+        <strong>Erro!</strong> {{message}}
+        </div>
+       {% endfor %}
+    <button type="submit" class="btn btn-primary">Entrar</button>
+  </form>
+</div>
+
+{% include "model-page.html" %}
+
